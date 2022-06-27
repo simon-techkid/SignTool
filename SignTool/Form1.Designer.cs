@@ -39,7 +39,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Sign file";
+            this.button1.Text = "Sign File";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -49,7 +49,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Sign folder";
+            this.button2.Text = "Sign Folder";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -59,22 +59,29 @@
             this.logtxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.logtxt.BackColor = System.Drawing.SystemColors.Window;
+            this.logtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.logtxt.Cursor = System.Windows.Forms.Cursors.Default;
             this.logtxt.Location = new System.Drawing.Point(12, 41);
             this.logtxt.Multiline = true;
             this.logtxt.Name = "logtxt";
-            this.logtxt.Size = new System.Drawing.Size(595, 327);
+            this.logtxt.ReadOnly = true;
+            this.logtxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.logtxt.Size = new System.Drawing.Size(680, 388);
             this.logtxt.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 380);
+            this.ClientSize = new System.Drawing.Size(704, 441);
             this.Controls.Add(this.logtxt);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Signtool";
+            this.Text = "SignTool";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -206,8 +206,6 @@ namespace SignTool1
             {
                 // do anything with this useful information?
                 string exception = e.Message;
-
-                System.Windows.Forms.MessageBox.Show(exception);
             }
             finally
             {
