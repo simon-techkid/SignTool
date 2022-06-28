@@ -83,7 +83,7 @@ namespace SignTool
                     fileCount += 1;
                     dllCount += 1;
                     logtxt.Text += "OK" + Environment.NewLine;
-                    statusLabel.Text = "[SIGNER] Signed DLL " + fileCount + " File(s): " + dllCount + "DLL";
+                    statusLabel.Text = "[SIGNER] Signed " + fileCount + " File(s): " + exeCount + " EXE, " + dllCount + " DLL";
                 }
 
                 System.Windows.Forms.MessageBox.Show("FOLDER SIGNING COMPLETE" + "\n" + fileCount + " File(s) Signed in Job:" + "\n" + exeCount + " EXE, " + dllCount + " DLL", "JobReport", 0, MessageBoxIcon.Information);
