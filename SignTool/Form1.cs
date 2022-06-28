@@ -17,7 +17,7 @@ namespace SignTool1
             InitializeComponent();
         }
 
-        private string button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.OpenFileDialog open;
 
@@ -74,6 +74,7 @@ namespace SignTool1
 
                     logtxt.Text += "OK" + Environment.NewLine;
                 }
+
                 System.Windows.Forms.MessageBox.Show("Done");
             }
         }

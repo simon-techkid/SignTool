@@ -1,9 +1,0 @@
-C:\Users\Simon\Downloads\SignTool-src\SignTool\bin\Release\SignTool.exe.config
-C:\Users\Simon\Downloads\SignTool-src\SignTool\bin\Release\SignTool.exe
-C:\Users\Simon\Downloads\SignTool-src\SignTool\bin\Release\SignTool.pdb
-C:\Users\Simon\Downloads\SignTool-src\SignTool\obj\Release\SignTool1.Form1.resources
-C:\Users\Simon\Downloads\SignTool-src\SignTool\obj\Release\SignTool1.Properties.Resources.resources
-C:\Users\Simon\Downloads\SignTool-src\SignTool\obj\Release\SignTool.csproj.GenerateResource.cache
-C:\Users\Simon\Downloads\SignTool-src\SignTool\obj\Release\SignTool.csproj.CoreCompileInputs.cache
-C:\Users\Simon\Downloads\SignTool-src\SignTool\obj\Release\SignTool.exe
-C:\Users\Simon\Downloads\SignTool-src\SignTool\obj\Release\SignTool.pdb
