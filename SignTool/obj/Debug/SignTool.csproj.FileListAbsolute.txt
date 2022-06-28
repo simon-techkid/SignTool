@@ -1,0 +1,9 @@
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\bin\Debug\SignTool.exe.config
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\bin\Debug\SignTool.exe
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\bin\Debug\SignTool.pdb
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.Form1.resources
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.Properties.Resources.resources
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.csproj.GenerateResource.cache
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.csproj.CoreCompileInputs.cache
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.exe
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.pdb

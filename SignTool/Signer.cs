@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
-namespace SignTool1
+namespace SignTool
 {
     internal static class SignTool
     {
@@ -174,9 +174,8 @@ namespace SignTool1
                 pSignatureInfo = CreateSignerSignatureInfo();
                 pProviderInfo = GetProviderInfo(cert);
 
-                SIGNER_CONTEXT signerContext;
 
-                SignCode(0x0, pSubjectInfo, pSignerCert, pSignatureInfo, pProviderInfo, out signerContext);
+                SignCode(0x0, pSubjectInfo, pSignerCert, pSignatureInfo, pProviderInfo, out SIGNER_CONTEXT signerContext);
 
                 // Only attempt to timestamp if we've got a timestampUrl.
                 if (!string.IsNullOrEmpty(timestampUrl))
@@ -207,7 +206,8 @@ namespace SignTool1
                 // do anything with this useful information?
                 string exception = e.Message;
 
-                System.Windows.Forms.MessageBox.Show(exception);
+                // MessageBox displayed at each file signed:
+                // System.Windows.Forms.MessageBox.Show(exception);
             }
             finally
             {
