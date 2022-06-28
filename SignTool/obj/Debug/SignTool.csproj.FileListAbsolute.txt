@@ -7,3 +7,5 @@ C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\Sign
 C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.csproj.CoreCompileInputs.cache
 C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.exe
 C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.pdb
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.csproj.AssemblyReference.cache
+C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.MDIParent1.resources
