@@ -5,4 +5,4 @@ The original source is accredited [here](https://forum.xda-developers.com/t/wind
 
 However, modifications and improvements have been made from the original, as represented in commits after 1.0.
 
-![image](SignTool.png)
+![image](SignTool.PNG)
