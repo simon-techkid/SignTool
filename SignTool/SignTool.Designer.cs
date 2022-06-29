@@ -33,21 +33,17 @@
             this.logtxt = new System.Windows.Forms.TextBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.strip = new System.Windows.Forms.MenuStrip();
-            this.stripFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.newJob = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveJob = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveLog = new System.Windows.Forms.Button();
+            this.ResetJob = new System.Windows.Forms.Button();
             this.statusBar.SuspendLayout();
-            this.strip.SuspendLayout();
             this.SuspendLayout();
             // 
             // SignFile
             // 
-            this.SignFile.Location = new System.Drawing.Point(12, 25);
+            this.SignFile.Location = new System.Drawing.Point(18, 14);
+            this.SignFile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SignFile.Name = "SignFile";
-            this.SignFile.Size = new System.Drawing.Size(75, 23);
+            this.SignFile.Size = new System.Drawing.Size(112, 35);
             this.SignFile.TabIndex = 0;
             this.SignFile.Text = "Sign File";
             this.SignFile.UseVisualStyleBackColor = true;
@@ -55,9 +51,10 @@
             // 
             // SignFolder
             // 
-            this.SignFolder.Location = new System.Drawing.Point(92, 25);
+            this.SignFolder.Location = new System.Drawing.Point(138, 14);
+            this.SignFolder.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SignFolder.Name = "SignFolder";
-            this.SignFolder.Size = new System.Drawing.Size(75, 23);
+            this.SignFolder.Size = new System.Drawing.Size(112, 35);
             this.SignFolder.TabIndex = 1;
             this.SignFolder.Text = "Sign Folder";
             this.SignFolder.UseVisualStyleBackColor = true;
@@ -66,17 +63,18 @@
             // logtxt
             // 
             this.logtxt.AcceptsReturn = true;
-            this.logtxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.logtxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logtxt.BackColor = System.Drawing.SystemColors.Window;
             this.logtxt.Cursor = System.Windows.Forms.Cursors.Default;
-            this.logtxt.Location = new System.Drawing.Point(12, 54);
+            this.logtxt.Location = new System.Drawing.Point(18, 59);
+            this.logtxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.logtxt.Multiline = true;
             this.logtxt.Name = "logtxt";
             this.logtxt.ReadOnly = true;
             this.logtxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logtxt.Size = new System.Drawing.Size(595, 319);
+            this.logtxt.Size = new System.Drawing.Size(890, 489);
             this.logtxt.TabIndex = 3;
             // 
             // statusBar
@@ -84,87 +82,56 @@
             this.statusBar.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(0, 375);
+            this.statusBar.Location = new System.Drawing.Point(0, 565);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.statusBar.Size = new System.Drawing.Size(619, 22);
+            this.statusBar.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
+            this.statusBar.Size = new System.Drawing.Size(928, 22);
             this.statusBar.TabIndex = 4;
             // 
             // statusLabel
             // 
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(0, 17);
+            this.statusLabel.Size = new System.Drawing.Size(0, 15);
             // 
-            // strip
+            // SaveLog
             // 
-            this.strip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.strip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stripFile});
-            this.strip.Location = new System.Drawing.Point(0, 0);
-            this.strip.Name = "strip";
-            this.strip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.strip.Size = new System.Drawing.Size(619, 24);
-            this.strip.TabIndex = 6;
-            this.strip.Text = "strip";
+            this.SaveLog.Location = new System.Drawing.Point(257, 14);
+            this.SaveLog.Name = "SaveLog";
+            this.SaveLog.Size = new System.Drawing.Size(112, 35);
+            this.SaveLog.TabIndex = 7;
+            this.SaveLog.Text = "Save Log";
+            this.SaveLog.UseVisualStyleBackColor = true;
+            this.SaveLog.Click += new System.EventHandler(this.SaveLog_Click);
             // 
-            // stripFile
+            // ResetJob
             // 
-            this.stripFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newJob,
-            this.saveJob,
-            this.toolStripSeparator1,
-            this.exit});
-            this.stripFile.Name = "stripFile";
-            this.stripFile.Size = new System.Drawing.Size(37, 22);
-            this.stripFile.Text = "File";
-            // 
-            // newJob
-            // 
-            this.newJob.Name = "newJob";
-            this.newJob.Size = new System.Drawing.Size(180, 22);
-            this.newJob.Text = "New";
-            this.newJob.Click += new System.EventHandler(this.NewJob_Click);
-            // 
-            // saveJob
-            // 
-            this.saveJob.Name = "saveJob";
-            this.saveJob.Size = new System.Drawing.Size(180, 22);
-            this.saveJob.Text = "Save As";
-            this.saveJob.Click += new System.EventHandler(this.SaveJob_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // exit
-            // 
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(180, 22);
-            this.exit.Text = "Exit";
-            this.exit.Click += new System.EventHandler(this.Exit_Click);
+            this.ResetJob.Location = new System.Drawing.Point(375, 14);
+            this.ResetJob.Name = "ResetJob";
+            this.ResetJob.Size = new System.Drawing.Size(112, 35);
+            this.ResetJob.TabIndex = 8;
+            this.ResetJob.Text = "Reset Job";
+            this.ResetJob.UseVisualStyleBackColor = true;
+            this.ResetJob.Click += new System.EventHandler(this.ResetJob_Click);
             // 
             // SignTool
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 397);
+            this.ClientSize = new System.Drawing.Size(928, 587);
+            this.Controls.Add(this.ResetJob);
+            this.Controls.Add(this.SaveLog);
             this.Controls.Add(this.statusBar);
-            this.Controls.Add(this.strip);
             this.Controls.Add(this.logtxt);
             this.Controls.Add(this.SignFolder);
             this.Controls.Add(this.SignFile);
-            this.MainMenuStrip = this.strip;
-            this.MinimumSize = new System.Drawing.Size(195, 176);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(522, 241);
+            this.Name = "SignTool";
             this.Text = "SignTool";
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
-            this.strip.ResumeLayout(false);
-            this.strip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -174,12 +141,8 @@
         private System.Windows.Forms.TextBox logtxt;
         private System.Windows.Forms.StatusStrip statusBar;
         public System.Windows.Forms.ToolStripStatusLabel statusLabel;
-        private System.Windows.Forms.MenuStrip strip;
-        private System.Windows.Forms.ToolStripMenuItem stripFile;
-        private System.Windows.Forms.ToolStripMenuItem newJob;
-        private System.Windows.Forms.ToolStripMenuItem saveJob;
-        private System.Windows.Forms.ToolStripMenuItem exit;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Button SaveLog;
+        private System.Windows.Forms.Button ResetJob;
     }
 }
 
