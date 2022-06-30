@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SignTool
@@ -11,85 +13,109 @@ namespace SignTool
             statusLabel.Text = "[INFO] Ready to Sign";
         }
 
-        int fileCount = 0;
-        int exeCount = 0;
-        int dllCount = 0;
-        int folderJobs = 0;
+        int totalJob = 0; //total files in job
+        int totalSigned = 0; //number of files signed total
+        int jobSigned = 0; //number of files in job signed
 
-        private void SignFile_Click(object sender, EventArgs e)
+        private void ClearFiles_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.OpenFileDialog open;
+            FilesListBox.Items.Clear();
+        }
 
-            open = new OpenFileDialog
+        private void AddFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDialog;
+            folderDialog = new System.Windows.Forms.FolderBrowserDialog();
+
+            if (folderDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var files = GetFiles(folderDialog.SelectedPath, "*.exe;*.dll", SearchOption.AllDirectories);
+                    foreach (string file in files)
+                    {
+                        totalJob += 1;
+                        FilesListBox.Items.Add(file);
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private void AddFile_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFile;
+
+            openFile = new OpenFileDialog
             {
                 Filter = "Executables|*.exe;*.dll",
                 Multiselect = true
             };
-
-            if (open.ShowDialog() == DialogResult.OK)
+            if (openFile.ShowDialog() == DialogResult.OK)
             {
-                foreach (string fileName in open.FileNames)
+                foreach (string fileName in openFile.FileNames)
                 {
-                    logtxt.Text += "[FILE SIGNER] " + fileName + "... ";
-                    Application.DoEvents();
-                    SignTool.SignWithCert(fileName, "http://timestamp.verisign.com/scripts/timstamp.dll");
-                    fileCount += 1;
-                    logtxt.Text += "OK" + Environment.NewLine;
-                    statusLabel.Text = "[FILE JOB] Signed 1 File";
+                    totalJob += 1;
+                    FilesListBox.Items.Add(fileName, true);
                 }
-                MessageBox.Show("FILE SIGNING COMPLETE", "JobReport", 0, MessageBoxIcon.Information);
-                logtxt.Text += "[FILE JOB] Signed 1 File" + Environment.NewLine;
-                logtxt.Text += Environment.NewLine;
-
-                // Post-Job Cleanup
-                statusLabel.Text = "[JobReport] Signed " + fileCount + " File(s)";
             }
+        }
+
+        private static string[] GetFiles(string sourceFolder, string filters, SearchOption searchOption)
+        {
+            return filters.Split(';').SelectMany(filter => Directory.GetFiles(sourceFolder, filter, searchOption)).ToArray();
+        }
+
+        private void SelectAllFiles_Click(object sender, EventArgs e)
+        {
+            bool AllFilesSelected = false;
+            if (SelectAllFiles.Text == "Select All")
+            {
+                AllFilesSelected = true;
+                SelectAllFiles.Text = "Deselect All";
+            }
+            else if (SelectAllFiles.Text == "Deselect All")
+            {
+                AllFilesSelected = false;
+                SelectAllFiles.Text = "Select All";
+            }
+            int count = FilesListBox.Items.Count;
+            for (int i = 0; i < count; i++)
+                FilesListBox.SetItemChecked(i, AllFilesSelected);
         }
 
         private void SignFolder_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderDialog;
+            progressBar.Minimum = 0;
+            progressBar.Maximum = totalJob;
+            progressBar.Value = 0;
+            groupBoxFiles.Enabled = false;
+            groupBoxSigner.Enabled = false;
+            logtxt.Text += "[JOB] Initiating Job of " + totalJob + " Files" + Environment.NewLine;
 
-            folderDialog = new System.Windows.Forms.FolderBrowserDialog();
-
-            if (folderDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            foreach (string file in FilesListBox.CheckedItems)
             {
-                string[] exefiles = System.IO.Directory.GetFiles(folderDialog.SelectedPath, "*.exe", System.IO.SearchOption.AllDirectories);
-                string[] dllfiles = System.IO.Directory.GetFiles(folderDialog.SelectedPath, "*.dll", System.IO.SearchOption.AllDirectories);
-
-                foreach (string fileName in exefiles)
-                {
-                    logtxt.Text += "[EXE SIGNER] " + fileName + "... ";
-                    Application.DoEvents();
-                    SignTool.SignWithCert(fileName, "http://timestamp.verisign.com/scripts/timstamp.dll");
-                    fileCount += 1;
-                    exeCount += 1;
-                    folderJobs += 1;
-                    logtxt.Text += "OK" + Environment.NewLine;
-                    statusLabel.Text = "[FOLDER JOB] Signed " + folderJobs + " File(s): " + exeCount + " EXE, " + dllCount + " DLL";
-                }
-
-                foreach (string fileName in dllfiles)
-                {
-                    logtxt.Text += "[DLL SIGNER] " + fileName + "... ";
-                    Application.DoEvents();
-                    SignTool.SignWithCert(fileName, "http://timestamp.verisign.com/scripts/timstamp.dll");
-                    fileCount += 1;
-                    dllCount += 1;
-                    folderJobs += 1;
-                    logtxt.Text += "OK" + Environment.NewLine;
-                    statusLabel.Text = "[FOLDER JOB] Signed " + folderJobs + " File(s): " + exeCount + " EXE, " + dllCount + " DLL";
-                }
-
-                MessageBox.Show("FOLDER SIGNING COMPLETE" + Environment.NewLine + "Folder Job: " + exeCount + " EXE, " + dllCount + " DLL", "JobReport", 0, MessageBoxIcon.Information);
-                logtxt.Text += "[FOLDER JOB] Signed " + (dllCount + exeCount) + " File(s) Total: " + exeCount + " EXE, " + dllCount + " DLL" + Environment.NewLine;
-                logtxt.Text += Environment.NewLine;
-
-                // Post-Job Cleanup
-                statusLabel.Text = "[JobReport] Signed " + fileCount + " File(s)";
-                dllCount = 0;
-                exeCount = 0;
+                logtxt.Text += "[SIGNER] " + file + "... ";
+                Application.DoEvents();
+                SignTool.SignWithCert(file, "http://timestamp.verisign.com/scripts/timstamp.dll");
+                jobSigned += 1;
+                progressBar.Step = 1;
+                progressBar.PerformStep();
+                logtxt.Text += "OK" + Environment.NewLine;
+                statusLabel.Text = "[JOB] Signed " + jobSigned + " of " + totalJob + " Files";
             }
+
+            MessageBox.Show("JOB COMPLETE" + Environment.NewLine + "Signed " + jobSigned + " of " + totalJob + " Files", "JobReport", 0, MessageBoxIcon.Information);
+            logtxt.Text += "[JOB] Completed Job of " + totalJob + " File(s): " + jobSigned + " of " + totalJob + Environment.NewLine;
+            logtxt.Text += Environment.NewLine;
+
+            // Post-Job Cleanup
+            progressBar.Value = 0;
+            totalSigned += jobSigned;
+            jobSigned = 0;
+            statusLabel.Text = "[JobReport] Signed " + totalSigned + " File(s)";
+            groupBoxFiles.Enabled = true;
+            groupBoxSigner.Enabled = true;
         }
 
         private void SaveLog_Click(object sender, EventArgs e)
@@ -107,14 +133,14 @@ namespace SignTool
 
         private void ResetJob_Click(object sender, EventArgs e)
         {
-            DialogResult resetJob = MessageBox.Show("DO YOU WANT TO RESET?" + "\n" + fileCount + " File(s) Signed Total", "ResetJob", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resetJob = MessageBox.Show("DO YOU WANT TO RESET?" + "\n" + totalSigned + " File(s) Signed Total", "ResetJob", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resetJob == DialogResult.Yes)
             {
-                fileCount = 0;
-                exeCount = 0;
-                dllCount = 0;
-                folderJobs = 0;
-                logtxt.Text = "";
+                totalSigned = 0;
+                totalJob = 0;
+                jobSigned = 0;
+                progressBar.Value = 0;
+                logtxt.Clear();
                 statusLabel.Text = "[INFO] Ready to Sign";
             }
         }
