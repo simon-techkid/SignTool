@@ -12,6 +12,8 @@ namespace SignTool
             InitializeComponent();
         }
 
+        #region Initialization
+        // prepares variables used in environment
         int totalJob = 0; //total files in job
         int totalSigned = 0; //number of files signed total
         int jobSigned = 0; //number of files in job signed
@@ -22,8 +24,11 @@ namespace SignTool
             progressBar.Visible = false;
             FilesListBox.Items.Clear();
             logtxt.Clear();
-            statusLabel.Text = "[INFO] Welcome to SignTool version 1.3.1";
+            statusLabel.Text = "[INFO] Welcome to SignTool version 1.3.2";
         }
+        #endregion
+
+        #region FileControlButtons
 
         // button for clearing contents of files list
         private void ClearFiles_Click(object sender, EventArgs e)
@@ -98,21 +103,25 @@ namespace SignTool
             return filters.Split(';').SelectMany(filter => Directory.GetFiles(sourceFolder, filter, searchOption)).ToArray();
         }
 
+        #endregion
+
+        #region SignerControlButtons
         // button for starting signing job
-        private void SignFolder_Click(object sender, EventArgs e)
+        private void StartJob_Click(object sender, EventArgs e)
         {
+            // prepares variables and environment for signing
             totalJob = FilesListBox.CheckedItems.Count;
             progressBar.Minimum = 0;
             progressBar.Maximum = totalJob;
             progressBar.Value = 0;
             progressBar.Visible = true;
-            groupBoxFiles.Enabled = false;
-            groupBoxSigner.Enabled = false;
-            logtxt.Text += "[JOB] Initiating Job of " + totalJob + " Files" + Environment.NewLine;
+            DisableForm(true);
+            logtxt.AppendText("[JOB] Initiating Job of " + totalJob + " Files" + Environment.NewLine);
 
+            // runs signer for each file
             foreach (string file in FilesListBox.CheckedItems)
             {
-                logtxt.Text += "[SIGNER] " + file + "... ";
+                logtxt.AppendText("[" + (jobSigned + 1) + "] " + file + "... ");
                 Application.DoEvents();
                 SignTool.SignWithCert(file, "http://timestamp.verisign.com/scripts/timstamp.dll");
                 jobSigned += 1;
@@ -122,24 +131,32 @@ namespace SignTool
                 statusLabel.Text = "[JOB] Signed " + jobSigned + " of " + totalJob + " Files";
             }
 
-            MessageBox.Show("JOB COMPLETE" + Environment.NewLine + "Signed " + jobSigned + " of " + totalJob + " Files", "Job", 0, MessageBoxIcon.Information);
-            logtxt.Text += "[JOB] Completed Job of " + totalJob + " File(s): " + jobSigned + " of " + totalJob + Environment.NewLine;
-            logtxt.Text += Environment.NewLine;
+            // runs after signing job completes
+            MessageBox.Show("JOB COMPLETE" + Environment.NewLine + "Signed " + jobSigned + " of " + totalJob + " Files", "Job Report", 0, MessageBoxIcon.Information);
+            logtxt.AppendText("[JOB] Completed Job of " + totalJob + " File(s): " + jobSigned + " of " + totalJob + Environment.NewLine);
+            logtxt.AppendText(Environment.NewLine);
 
-            // Post-Job Cleanup
+            // cleans up environment after job
             progressBar.Value = 0;
             progressBar.Visible = false;
             totalSigned += jobSigned;
             jobSigned = 0;
             statusLabel.Text = "[JOB] Signed " + totalSigned + " File(s)";
-            groupBoxFiles.Enabled = true;
-            groupBoxSigner.Enabled = true;
+            DisableForm(false);
+        }
+
+        private void DisableForm(bool disable)
+        {
+            groupBoxFiles.Enabled = !disable;
+            StartJob.Enabled = !disable;
+            ResetJob.Enabled = !disable;
+            menuList.Enabled = !disable;
         }
 
         // button for resetting signer output box
         private void ResetJob_Click(object sender, EventArgs e)
         {
-            DialogResult resetJob = MessageBox.Show("DO YOU WANT TO RESET?" + Environment.NewLine + totalSigned + " File(s) Signed Total" + Environment.NewLine + FilesListBox.Items.Count + " File(s) Imported to File List", "Reset Job", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult resetJob = MessageBox.Show("DO YOU WANT TO RESET?" + Environment.NewLine + totalSigned + " File(s) Signed in Job" + Environment.NewLine + FilesListBox.Items.Count + " File(s) Imported to File List", "Reset Job", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resetJob == DialogResult.Yes)
             {
                 totalSigned = 0;
@@ -151,6 +168,8 @@ namespace SignTool
                 statusLabel.Text = "[INFO] Ready to Sign, Add a Folder or File to List";
             }
         }
+        
+        // button for getting info about selected and total number of files in list
         private void JobFilesInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show(FilesListBox.CheckedItems.Count + " of " + FilesListBox.Items.Count + " Files Selected", "Job Files", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -166,23 +185,29 @@ namespace SignTool
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                System.IO.File.WriteAllText(sfd.FileName, logtxt.Text);
+                File.WriteAllText(sfd.FileName, logtxt.Text);
             }
-        } 
+        }
+        #endregion
 
+        #region MenuSelections
+        // menu selection for getting basic help info about SignTool
         private void ButtonHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("SignTool Help" + Environment.NewLine + Environment.NewLine + "Use the controls under the Files category to add entire folders or single files to the checkbox list, and uncheck or check the boxes on each file to control which are signed. To begin signing the selected files, select Start Job under the Signer category.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // menu selection for getting contributor credits
         private void ButtonAbout_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("About SignTool" + Environment.NewLine + Environment.NewLine + "Signer Written by eisbaer82 on XDA" + Environment.NewLine + "GUI Improved by TheBoyLeastLikelyTo on GitHub" + Environment.NewLine + "Can be used on arm32 Windows, such as RT", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // menu selection for exiting the program
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion
     }
 }

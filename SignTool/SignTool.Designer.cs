@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SignFolder = new System.Windows.Forms.Button();
+            this.StartJob = new System.Windows.Forms.Button();
             this.logtxt = new System.Windows.Forms.TextBox();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.menuList = new System.Windows.Forms.ToolStripDropDownButton();
@@ -53,15 +53,16 @@
             this.groupBoxFiles.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SignFolder
+            // StartJob
             // 
-            this.SignFolder.Location = new System.Drawing.Point(5, 18);
-            this.SignFolder.Name = "SignFolder";
-            this.SignFolder.Size = new System.Drawing.Size(75, 23);
-            this.SignFolder.TabIndex = 7;
-            this.SignFolder.Text = "Start Job";
-            this.SignFolder.UseVisualStyleBackColor = true;
-            this.SignFolder.Click += new System.EventHandler(this.SignFolder_Click);
+            this.StartJob.Location = new System.Drawing.Point(8, 28);
+            this.StartJob.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.StartJob.Name = "StartJob";
+            this.StartJob.Size = new System.Drawing.Size(112, 35);
+            this.StartJob.TabIndex = 7;
+            this.StartJob.Text = "Start Job";
+            this.StartJob.UseVisualStyleBackColor = true;
+            this.StartJob.Click += new System.EventHandler(this.StartJob_Click);
             // 
             // logtxt
             // 
@@ -73,13 +74,14 @@
             this.logtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.logtxt.Cursor = System.Windows.Forms.Cursors.Default;
             this.logtxt.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.logtxt.Location = new System.Drawing.Point(5, 43);
+            this.logtxt.Location = new System.Drawing.Point(8, 66);
+            this.logtxt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.logtxt.Multiline = true;
             this.logtxt.Name = "logtxt";
             this.logtxt.ReadOnly = true;
             this.logtxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logtxt.Size = new System.Drawing.Size(468, 94);
-            this.logtxt.TabIndex = 10;
+            this.logtxt.Size = new System.Drawing.Size(701, 144);
+            this.logtxt.TabIndex = 11;
             // 
             // statusBar
             // 
@@ -88,10 +90,10 @@
             this.menuList,
             this.progressBar,
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(0, 309);
+            this.statusBar.Location = new System.Drawing.Point(0, 477);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.statusBar.Size = new System.Drawing.Size(504, 22);
+            this.statusBar.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
+            this.statusBar.Size = new System.Drawing.Size(756, 32);
             this.statusBar.TabIndex = 12;
             // 
             // menuList
@@ -104,14 +106,14 @@
             this.ExitButton});
             this.menuList.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.menuList.Name = "menuList";
-            this.menuList.Size = new System.Drawing.Size(51, 20);
+            this.menuList.Size = new System.Drawing.Size(75, 29);
             this.menuList.Text = "Menu";
             // 
             // ButtonAbout
             // 
             this.ButtonAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ButtonAbout.Name = "ButtonAbout";
-            this.ButtonAbout.Size = new System.Drawing.Size(180, 22);
+            this.ButtonAbout.Size = new System.Drawing.Size(164, 34);
             this.ButtonAbout.Text = "About";
             this.ButtonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
@@ -119,20 +121,20 @@
             // 
             this.ButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ButtonHelp.Name = "ButtonHelp";
-            this.ButtonHelp.Size = new System.Drawing.Size(180, 22);
+            this.ButtonHelp.Size = new System.Drawing.Size(164, 34);
             this.ButtonHelp.Text = "Help";
             this.ButtonHelp.Click += new System.EventHandler(this.ButtonHelp_Click);
             // 
             // MenuSeparator
             // 
             this.MenuSeparator.Name = "MenuSeparator";
-            this.MenuSeparator.Size = new System.Drawing.Size(177, 6);
+            this.MenuSeparator.Size = new System.Drawing.Size(161, 6);
             // 
             // ExitButton
             // 
             this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(180, 22);
+            this.ExitButton.Size = new System.Drawing.Size(164, 34);
             this.ExitButton.Text = "Exit";
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
@@ -140,30 +142,28 @@
             // 
             this.progressBar.Name = "progressBar";
             this.progressBar.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.progressBar.Size = new System.Drawing.Size(100, 16);
+            this.progressBar.Size = new System.Drawing.Size(150, 24);
             // 
             // statusLabel
             // 
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(0, 17);
+            this.statusLabel.Size = new System.Drawing.Size(0, 25);
             // 
             // SaveLog
             // 
-            this.SaveLog.Location = new System.Drawing.Point(242, 18);
-            this.SaveLog.Margin = new System.Windows.Forms.Padding(2);
+            this.SaveLog.Location = new System.Drawing.Point(363, 28);
             this.SaveLog.Name = "SaveLog";
-            this.SaveLog.Size = new System.Drawing.Size(75, 23);
-            this.SaveLog.TabIndex = 9;
+            this.SaveLog.Size = new System.Drawing.Size(112, 35);
+            this.SaveLog.TabIndex = 10;
             this.SaveLog.Text = "Save Log";
             this.SaveLog.UseVisualStyleBackColor = true;
             this.SaveLog.Click += new System.EventHandler(this.SaveLog_Click);
             // 
             // ResetJob
             // 
-            this.ResetJob.Location = new System.Drawing.Point(84, 18);
-            this.ResetJob.Margin = new System.Windows.Forms.Padding(2);
+            this.ResetJob.Location = new System.Drawing.Point(126, 28);
             this.ResetJob.Name = "ResetJob";
-            this.ResetJob.Size = new System.Drawing.Size(75, 23);
+            this.ResetJob.Size = new System.Drawing.Size(112, 35);
             this.ResetJob.TabIndex = 8;
             this.ResetJob.Text = "Reset Job";
             this.ResetJob.UseVisualStyleBackColor = true;
@@ -178,22 +178,21 @@
             this.groupBoxSigner.Controls.Add(this.logtxt);
             this.groupBoxSigner.Controls.Add(this.SaveLog);
             this.groupBoxSigner.Controls.Add(this.ResetJob);
-            this.groupBoxSigner.Controls.Add(this.SignFolder);
-            this.groupBoxSigner.Location = new System.Drawing.Point(12, 154);
-            this.groupBoxSigner.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxSigner.Controls.Add(this.StartJob);
+            this.groupBoxSigner.Location = new System.Drawing.Point(18, 237);
             this.groupBoxSigner.Name = "groupBoxSigner";
-            this.groupBoxSigner.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxSigner.Size = new System.Drawing.Size(478, 142);
+            this.groupBoxSigner.Size = new System.Drawing.Size(717, 218);
             this.groupBoxSigner.TabIndex = 6;
             this.groupBoxSigner.TabStop = false;
             this.groupBoxSigner.Text = "Signer";
             // 
             // JobFilesInfo
             // 
-            this.JobFilesInfo.Location = new System.Drawing.Point(163, 18);
+            this.JobFilesInfo.Location = new System.Drawing.Point(244, 28);
+            this.JobFilesInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.JobFilesInfo.Name = "JobFilesInfo";
-            this.JobFilesInfo.Size = new System.Drawing.Size(75, 23);
-            this.JobFilesInfo.TabIndex = 11;
+            this.JobFilesInfo.Size = new System.Drawing.Size(112, 35);
+            this.JobFilesInfo.TabIndex = 9;
             this.JobFilesInfo.Text = "Job Files";
             this.JobFilesInfo.UseVisualStyleBackColor = true;
             this.JobFilesInfo.Click += new System.EventHandler(this.JobFilesInfo_Click);
@@ -207,21 +206,18 @@
             this.groupBoxFiles.Controls.Add(this.AddFolder);
             this.groupBoxFiles.Controls.Add(this.AddFile);
             this.groupBoxFiles.Controls.Add(this.FilesListBox);
-            this.groupBoxFiles.Location = new System.Drawing.Point(12, 8);
-            this.groupBoxFiles.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxFiles.Location = new System.Drawing.Point(18, 12);
             this.groupBoxFiles.Name = "groupBoxFiles";
-            this.groupBoxFiles.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxFiles.Size = new System.Drawing.Size(478, 142);
+            this.groupBoxFiles.Size = new System.Drawing.Size(717, 218);
             this.groupBoxFiles.TabIndex = 0;
             this.groupBoxFiles.TabStop = false;
             this.groupBoxFiles.Text = "Files";
             // 
             // SelectAllFiles
             // 
-            this.SelectAllFiles.Location = new System.Drawing.Point(84, 16);
-            this.SelectAllFiles.Margin = new System.Windows.Forms.Padding(2);
+            this.SelectAllFiles.Location = new System.Drawing.Point(126, 25);
             this.SelectAllFiles.Name = "SelectAllFiles";
-            this.SelectAllFiles.Size = new System.Drawing.Size(75, 23);
+            this.SelectAllFiles.Size = new System.Drawing.Size(112, 35);
             this.SelectAllFiles.TabIndex = 2;
             this.SelectAllFiles.Text = "Deselect All";
             this.SelectAllFiles.UseVisualStyleBackColor = true;
@@ -229,10 +225,9 @@
             // 
             // ClearFiles
             // 
-            this.ClearFiles.Location = new System.Drawing.Point(5, 16);
-            this.ClearFiles.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearFiles.Location = new System.Drawing.Point(8, 25);
             this.ClearFiles.Name = "ClearFiles";
-            this.ClearFiles.Size = new System.Drawing.Size(75, 23);
+            this.ClearFiles.Size = new System.Drawing.Size(112, 35);
             this.ClearFiles.TabIndex = 1;
             this.ClearFiles.Text = "Clear All";
             this.ClearFiles.UseVisualStyleBackColor = true;
@@ -240,10 +235,9 @@
             // 
             // AddFolder
             // 
-            this.AddFolder.Location = new System.Drawing.Point(163, 16);
-            this.AddFolder.Margin = new System.Windows.Forms.Padding(2);
+            this.AddFolder.Location = new System.Drawing.Point(244, 25);
             this.AddFolder.Name = "AddFolder";
-            this.AddFolder.Size = new System.Drawing.Size(75, 23);
+            this.AddFolder.Size = new System.Drawing.Size(112, 35);
             this.AddFolder.TabIndex = 3;
             this.AddFolder.Text = "Add Folder";
             this.AddFolder.UseVisualStyleBackColor = true;
@@ -251,10 +245,9 @@
             // 
             // AddFile
             // 
-            this.AddFile.Location = new System.Drawing.Point(242, 16);
-            this.AddFile.Margin = new System.Windows.Forms.Padding(2);
+            this.AddFile.Location = new System.Drawing.Point(363, 25);
             this.AddFile.Name = "AddFile";
-            this.AddFile.Size = new System.Drawing.Size(75, 23);
+            this.AddFile.Size = new System.Drawing.Size(112, 35);
             this.AddFile.TabIndex = 4;
             this.AddFile.Text = "Add File";
             this.AddFile.UseVisualStyleBackColor = true;
@@ -267,23 +260,23 @@
             this.FilesListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FilesListBox.CheckOnClick = true;
             this.FilesListBox.FormattingEnabled = true;
-            this.FilesListBox.Location = new System.Drawing.Point(5, 43);
-            this.FilesListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.FilesListBox.Location = new System.Drawing.Point(8, 66);
             this.FilesListBox.Name = "FilesListBox";
             this.FilesListBox.ScrollAlwaysVisible = true;
-            this.FilesListBox.Size = new System.Drawing.Size(468, 92);
+            this.FilesListBox.Size = new System.Drawing.Size(701, 140);
             this.FilesListBox.TabIndex = 5;
             // 
             // Form1
             // 
             this.AccessibleName = "SignTool";
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 331);
+            this.ClientSize = new System.Drawing.Size(756, 509);
             this.Controls.Add(this.groupBoxFiles);
             this.Controls.Add(this.groupBoxSigner);
             this.Controls.Add(this.statusBar);
-            this.MinimumSize = new System.Drawing.Size(363, 354);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(534, 514);
             this.Name = "Form1";
             this.Text = "SignTool";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -298,7 +291,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button SignFolder;
+        private System.Windows.Forms.Button StartJob;
         private System.Windows.Forms.TextBox logtxt;
         private System.Windows.Forms.StatusStrip statusBar;
         public System.Windows.Forms.ToolStripStatusLabel statusLabel;
