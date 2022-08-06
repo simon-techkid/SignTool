@@ -24,7 +24,7 @@ namespace SignTool
             progressBar.Visible = false;
             FilesListBox.Items.Clear();
             logtxt.Clear();
-            statusLabel.Text = "[INFO] Welcome to SignTool version 1.3.2";
+            statusLabel.Text = "[INFO] Welcome to SignTool version 1.3.3";
         }
         #endregion
 
@@ -66,7 +66,7 @@ namespace SignTool
             {
                 try
                 {
-                    var files = GetFiles(folderDialog.SelectedPath, "*.exe;*.dll", SearchOption.AllDirectories);
+                    var files = GetFiles(folderDialog.SelectedPath, "*.exe;*.dll;*.sys", SearchOption.AllDirectories);
                     foreach (string fileName in files)
                     {
                         FilesListBox.Items.Add(fileName, true);
@@ -84,7 +84,7 @@ namespace SignTool
 
             openFile = new OpenFileDialog
             {
-                Filter = "Executables|*.exe;*.dll",
+                Filter = "Executables|*.exe;*.dll;*.sys",
                 Multiselect = true
             };
             if (openFile.ShowDialog() == DialogResult.OK)
