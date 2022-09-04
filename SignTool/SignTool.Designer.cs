@@ -82,6 +82,7 @@
             this.logtxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logtxt.Size = new System.Drawing.Size(701, 144);
             this.logtxt.TabIndex = 11;
+            this.logtxt.WordWrap = false;
             // 
             // statusBar
             // 
@@ -113,7 +114,7 @@
             // 
             this.ButtonAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ButtonAbout.Name = "ButtonAbout";
-            this.ButtonAbout.Size = new System.Drawing.Size(164, 34);
+            this.ButtonAbout.Size = new System.Drawing.Size(293, 34);
             this.ButtonAbout.Text = "About";
             this.ButtonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
@@ -121,20 +122,20 @@
             // 
             this.ButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ButtonHelp.Name = "ButtonHelp";
-            this.ButtonHelp.Size = new System.Drawing.Size(164, 34);
+            this.ButtonHelp.Size = new System.Drawing.Size(293, 34);
             this.ButtonHelp.Text = "Help";
             this.ButtonHelp.Click += new System.EventHandler(this.ButtonHelp_Click);
             // 
             // MenuSeparator
             // 
             this.MenuSeparator.Name = "MenuSeparator";
-            this.MenuSeparator.Size = new System.Drawing.Size(161, 6);
+            this.MenuSeparator.Size = new System.Drawing.Size(290, 6);
             // 
             // ExitButton
             // 
             this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(164, 34);
+            this.ExitButton.Size = new System.Drawing.Size(293, 34);
             this.ExitButton.Text = "Exit";
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 

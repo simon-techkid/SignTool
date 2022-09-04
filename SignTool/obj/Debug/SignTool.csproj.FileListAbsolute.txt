@@ -9,12 +9,3 @@ C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\Sign
 C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.pdb
 C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.csproj.AssemblyReference.cache
 C:\Users\Simon\source\repos\TheBoyLeastLikelyTo\SignTool\SignTool\obj\Debug\SignTool.MDIParent1.resources
-C:\Users\Simon\Source\Repos\SignTool\SignTool\bin\Debug\SignTool.exe.config
-C:\Users\Simon\Source\Repos\SignTool\SignTool\bin\Debug\SignTool.exe
-C:\Users\Simon\Source\Repos\SignTool\SignTool\bin\Debug\SignTool.pdb
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Debug\SignTool.Form1.resources
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Debug\SignTool.Properties.Resources.resources
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Debug\SignTool.csproj.GenerateResource.cache
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Debug\SignTool.csproj.CoreCompileInputs.cache
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Debug\SignTool.exe
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Debug\SignTool.pdb

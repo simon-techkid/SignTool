@@ -19,7 +19,6 @@ C:\Users\Simon\Documents\GitHub\SignTool\SignTool\obj\Release\SignTool.pdb
 C:\Users\Simon\Source\Repos\SignTool\SignTool\bin\Release\SignTool.exe.config
 C:\Users\Simon\Source\Repos\SignTool\SignTool\bin\Release\SignTool.exe
 C:\Users\Simon\Source\Repos\SignTool\SignTool\bin\Release\SignTool.pdb
-C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Release\SignTool.csproj.AssemblyReference.cache
 C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Release\SignTool.Form1.resources
 C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Release\SignTool.Properties.Resources.resources
 C:\Users\Simon\Source\Repos\SignTool\SignTool\obj\Release\SignTool.csproj.GenerateResource.cache

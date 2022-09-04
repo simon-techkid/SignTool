@@ -24,7 +24,7 @@ namespace SignTool
             progressBar.Visible = false;
             FilesListBox.Items.Clear();
             logtxt.Clear();
-            statusLabel.Text = "[INFO] Welcome to SignTool version 1.3.3";
+            statusLabel.Text = "[INFO] Welcome to SignTool version 1.3.4";
         }
         #endregion
 
@@ -124,10 +124,10 @@ namespace SignTool
                 logtxt.AppendText("[" + (jobSigned + 1) + "] " + file + "... ");
                 Application.DoEvents();
                 SignTool.SignWithCert(file, "http://timestamp.verisign.com/scripts/timstamp.dll");
+                logtxt.Text += "OK" + Environment.NewLine;
                 jobSigned += 1;
                 progressBar.Step = 1;
                 progressBar.PerformStep();
-                logtxt.Text += "OK" + Environment.NewLine;
                 statusLabel.Text = "[JOB] Signed " + jobSigned + " of " + totalJob + " Files";
             }
 
@@ -200,7 +200,7 @@ namespace SignTool
         // menu selection for getting contributor credits
         private void ButtonAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("About SignTool" + Environment.NewLine + Environment.NewLine + "Signer Written by eisbaer82 on XDA" + Environment.NewLine + "GUI Improved by TheBoyLeastLikelyTo on GitHub" + Environment.NewLine + "Can be used on arm32 Windows, such as RT", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("About SignTool v1.3.4" + Environment.NewLine + Environment.NewLine + "Signer Written by eisbaer82 on XDA" + Environment.NewLine + "GUI Improved by TheBoyLeastLikelyTo on GitHub" + Environment.NewLine + "Can be used on arm32 Windows, such as RT", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // menu selection for exiting the program

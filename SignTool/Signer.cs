@@ -207,7 +207,10 @@ namespace SignTool
                 string exception = e.Message;
 
                 // MessageBox displayed at each file signed:
-                // System.Windows.Forms.MessageBox.Show(exception);
+                if (exception.Contains("successful") == false)
+                {
+                    System.Windows.Forms.MessageBox.Show(exception, "JOB ERROR", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                }
             }
             finally
             {
